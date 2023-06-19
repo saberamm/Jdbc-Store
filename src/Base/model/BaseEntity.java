@@ -1,4 +1,4 @@
-package Base.Model;
+package Base.model;
 
 public class BaseEntity <ID>{
 
