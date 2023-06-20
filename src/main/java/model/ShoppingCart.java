@@ -4,20 +4,20 @@ import Base.model.BaseEntity;
 
 public class ShoppingCart extends BaseEntity<Integer> {
     int user_id;
-    int price;
     String productName;
+    int price;
 
-    public ShoppingCart(int user_id, int price, String productName) {
+    public ShoppingCart(int user_id, String productName, int price) {
         this.user_id = user_id;
-        this.price = price;
         this.productName = productName;
+        this.price = price;
     }
 
-    public ShoppingCart(Integer id, int user_id, int price, String productName) {
+    public ShoppingCart(Integer id, int user_id, String productName, int price) {
         super(id);
         this.user_id = user_id;
-        this.price = price;
         this.productName = productName;
+        this.price = price;
     }
 
     public int getUser_id() {
