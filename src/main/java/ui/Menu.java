@@ -19,18 +19,10 @@ public class Menu {
             Printer.printMenu(Constant.FIRST_MENU, Constant.WELCOME);
             Printer.printMsg(Constant.CHOOSE_ITEM, false);
             switch (new Scanner(System.in).next().trim()) {
-                case "1":
-                    loginMenu();
-                    break;
-                case "2":
-                    signupMenu();
-                    break;
-                case "3":
-                    System.exit(0);
-                    break;
-                default:
-                    Printer.printWarning(Constant.ITEM_NOT_FOUND);
-                    break;
+                case "1" -> loginMenu();
+                case "2" -> signupMenu();
+                case "3" -> System.exit(0);
+                default -> Printer.printWarning(Constant.ITEM_NOT_FOUND);
             }
         }
     }
@@ -127,22 +119,14 @@ public class Menu {
             Printer.printMenu(Constant.DASHBOARD_MENU, Constant.WELCOME_MESSAGE + SecurityContext.firstName);
 
             switch (new Scanner(System.in).next().trim()) {
-                case "1":
-                    showProfile();
-                    break;
-                case "2":
-                    updateProfile();
-                    break;
-                case "3":
-                    deleteAccount();
-                    break;
-                case "4":
+                case "1" -> showProfile();
+                case "2" -> updateProfile();
+                case "3" -> deleteAccount();
+                case "4" -> {
                     clearSecurityContext();
                     run();
-                    break;
-                default:
-                    Printer.printWarning(Constant.ITEM_NOT_FOUND);
-                    break;
+                }
+                default -> Printer.printWarning(Constant.ITEM_NOT_FOUND);
             }
         }
     }
