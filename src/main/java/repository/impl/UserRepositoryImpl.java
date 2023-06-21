@@ -120,6 +120,7 @@ public class UserRepositoryImpl
         preparedStatement.setString(4, entity.getPassword());
         preparedStatement.setString(5, entity.getNatCode());
         preparedStatement.setString(6, entity.getPhone());
+        preparedStatement.setInt(7, entity.getId());
 
     }
 

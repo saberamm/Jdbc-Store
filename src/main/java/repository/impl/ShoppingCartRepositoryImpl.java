@@ -1,6 +1,7 @@
 package repository.impl;
 
 import Base.repository.impl.BaseRepositoryImpl;
+import config.DBConfig;
 import model.ShoppingCart;
 import model.User;
 import repository.ShoppingCartRepository;
@@ -8,6 +9,8 @@ import repository.ShoppingCartRepository;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShoppingCartRepositoryImpl extends BaseRepositoryImpl<Integer, ShoppingCart> implements ShoppingCartRepository {
     @Override
@@ -43,5 +46,20 @@ public class ShoppingCartRepositoryImpl extends BaseRepositoryImpl<Integer, Shop
         preparedStatement.setInt(1, entity.getUser_id());
         preparedStatement.setString(2, entity.getProductName());
         preparedStatement.setInt(3, entity.getPrice());
+        preparedStatement.setInt(4, entity.getId());
+    }
+
+    @Override
+    public List<ShoppingCart> findAllByUserName(int id) throws SQLException {
+        String sql = " SELECT * FROM " + getTableName() + " WHERE user_id =? ";
+        try (PreparedStatement statement = new DBConfig().getConnection().prepareStatement(sql)) {
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            List<ShoppingCart> entities = new ArrayList<>();
+            while (resultSet.next()) {
+                entities.add(mapResultSetToEntity(resultSet));
+            }
+            return entities;
+        }
     }
 }
