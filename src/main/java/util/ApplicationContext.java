@@ -1,35 +1,49 @@
 package util;
 
-import config.DBConfig;
+import repository.ShoppingCartRepository;
 import repository.UserRepository;
+import repository.impl.ShoppingCartRepositoryImpl;
 import repository.impl.UserRepositoryImpl;
+import service.ShoppingCartService;
 import service.UserService;
+import service.impl.ShoppingCartServiceImpl;
 import service.impl.UserServiceImpl;
-
-import java.sql.Connection;
 
 public class ApplicationContext {
 
-    private static Connection connection=new DBConfig().getConnection();
+    //user context
 
     private static UserRepository userRepository;
 
     private static UserService userService;
 
 
-
     static {
-        userRepository=new UserRepositoryImpl();
+        userRepository = new UserRepositoryImpl();
 
-        userService=new UserServiceImpl(userRepository);
+        userService = new UserServiceImpl(userRepository);
     }
 
-    public static UserService getUserService(){
+    public static UserService getUserService() {
         return userService;
     }
 
 
-    public static Connection getConnection() {
-        return connection;
+    //shopping cart context
+    private static ShoppingCartRepository shoppingCartRepository;
+
+    private static ShoppingCartService shoppingCartService;
+
+
+    static {
+        shoppingCartRepository = new ShoppingCartRepositoryImpl();
+
+        shoppingCartService = new ShoppingCartServiceImpl(shoppingCartRepository);
     }
+
+    public static ShoppingCartService getShoppingCartService() {
+        return shoppingCartService;
+    }
+
+
 }
