@@ -1,7 +1,4 @@
-import model.User;
 import ui.Menu;
-import util.ApplicationContext;
-
 
 import java.sql.SQLException;
 

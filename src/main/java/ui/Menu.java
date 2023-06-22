@@ -114,7 +114,7 @@ public class Menu {
         }
 
     }
-
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void dashboardMenu() {
         while (true) {
             Printer.printMenu(Constant.DASHBOARD_MENU, Constant.WELCOME_MESSAGE + SecurityContext.firstName);

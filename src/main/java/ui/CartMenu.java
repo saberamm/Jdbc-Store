@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class CartMenu {
     static Scanner scanner = new Scanner(System.in);
-
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void buyingMenu() {
         while (true) {
             Printer.printMenu(Constant.CART_MENU, Constant.WELCOME_MESSAGE + SecurityContext.firstName);
