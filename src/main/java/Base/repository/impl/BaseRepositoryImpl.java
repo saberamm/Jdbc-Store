@@ -63,7 +63,7 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, TYPE extends B
     public void update(TYPE entity) throws SQLException {
         String sql = "UPDATE " + getTableName() + " SET " + getUpdateQueryParams() + " WHERE id = ?";
         try (PreparedStatement statement = new DBConfig().getConnection().prepareStatement(sql)) {
-            fillParamForStatement(statement, entity);
+            fillParamForUpdate(statement, entity);
             statement.executeUpdate();
         }
     }
@@ -80,6 +80,7 @@ public abstract class BaseRepositoryImpl<ID extends Serializable, TYPE extends B
     public abstract TYPE mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 
     public abstract void fillParamForStatement(PreparedStatement preparedStatement, TYPE entity) throws SQLException;
+    public abstract void fillParamForUpdate(PreparedStatement preparedStatement, TYPE entity) throws SQLException;
 
 
 
