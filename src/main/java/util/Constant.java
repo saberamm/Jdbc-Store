@@ -25,6 +25,8 @@ public class Constant {
     public static final String REGISTRATION_SUCCESS = "registration was successfully";
     public static final String UPDATE_SUCCESS = "update was successfully";
     public static final String PRODUCT_CHOOSE = "choose one of these items";
+    public static final String TOTAL_PRICE = "your shopping cart total price :";
+    public static final String TOTAL_CART = "The number of products in the shopping cart :";
 
 
     public static final String [] FIRST_MENU={"LOGIN","SIGN UP","EXIT"};

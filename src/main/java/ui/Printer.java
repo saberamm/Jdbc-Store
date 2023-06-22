@@ -19,5 +19,11 @@ public class Printer {
 
         System.out.println(">>>> "+msg+"\n");
     }
+    public static void printMsg(String msg ,boolean nextLine,Number num){
+        if (nextLine)
+            System.out.println(msg+num);
+        else
+            System.out.print(msg+num);
+    }
 
 }

@@ -23,7 +23,7 @@ public class CartMenu {
                 case "1" -> shopping();
                 case "2" -> updateCart();
                 case "3" -> deleteCart();
-                case "4" -> cartPrice();
+                case "4" -> totalCartAndPrice();
                 case "5" -> Menu.dashboardMenu();
                 default -> Printer.printWarning(Constant.ITEM_NOT_FOUND);
             }
@@ -108,14 +108,16 @@ public class CartMenu {
         }
     }
 
-    private static void cartPrice() {
+    private static void totalCartAndPrice() {
         try {
             long sumPrice = 0;
             List<ShoppingCart> products = ApplicationContext.getShoppingCartService().findAllByUserName(SecurityContext.id);
             for (ShoppingCart p : products) {
                 sumPrice += p.getPrice();
+                System.out.println(p);
             }
-            System.out.println("your shopping cart total price" + sumPrice);
+            Printer.printMsg(Constant.TOTAL_CART,true,products.size());
+            Printer.printMsg(Constant.TOTAL_PRICE,true,sumPrice);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
