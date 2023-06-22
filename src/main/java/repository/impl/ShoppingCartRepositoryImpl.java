@@ -46,6 +46,13 @@ public class ShoppingCartRepositoryImpl extends BaseRepositoryImpl<Integer, Shop
         preparedStatement.setInt(1, entity.getUser_id());
         preparedStatement.setString(2, entity.getProductName());
         preparedStatement.setInt(3, entity.getPrice());
+    }
+
+    @Override
+    public void fillParamForUpdate(PreparedStatement preparedStatement, ShoppingCart entity) throws SQLException {
+        preparedStatement.setInt(1, entity.getUser_id());
+        preparedStatement.setString(2, entity.getProductName());
+        preparedStatement.setInt(3, entity.getPrice());
         preparedStatement.setInt(4, entity.getId());
     }
 

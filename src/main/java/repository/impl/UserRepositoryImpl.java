@@ -120,8 +120,18 @@ public class UserRepositoryImpl
         preparedStatement.setString(4, entity.getPassword());
         preparedStatement.setString(5, entity.getNatCode());
         preparedStatement.setString(6, entity.getPhone());
-        preparedStatement.setInt(7, entity.getId());
 
+    }
+
+    @Override
+    public void fillParamForUpdate(PreparedStatement preparedStatement, User entity) throws SQLException {
+        preparedStatement.setString(1, entity.getFirstName());
+        preparedStatement.setString(2, entity.getLastName());
+        preparedStatement.setString(3, entity.getUsername());
+        preparedStatement.setString(4, entity.getPassword());
+        preparedStatement.setString(5, entity.getNatCode());
+        preparedStatement.setString(6, entity.getPhone());
+        preparedStatement.setInt(7, entity.getId());
     }
 
     @Override
