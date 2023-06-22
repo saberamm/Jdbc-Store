@@ -1,6 +1,6 @@
 package model;
 
-public enum Shoes {
+public enum Shoes implements Product{
     sport(1000),
     official(1000);
     private int value;

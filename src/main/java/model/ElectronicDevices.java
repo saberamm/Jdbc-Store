@@ -1,6 +1,6 @@
 package model;
 
-public enum ElectronicDevices {
+public enum ElectronicDevices implements Product{
     tv(2000),
     radio(2000);
 
